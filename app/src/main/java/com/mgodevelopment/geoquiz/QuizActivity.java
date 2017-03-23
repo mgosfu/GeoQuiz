@@ -1,6 +1,7 @@
 package com.mgodevelopment.geoquiz;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.mgodevelopment.geoquiz.models.Question;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -24,6 +27,7 @@ public class QuizActivity extends AppCompatActivity {
     private Button mBtnFalse;
     private ImageButton mBtnNext;
     private ImageButton mBtnPrev;
+    private Button mBtnCheat;
     private TextView mTvQuestion;
     private int mQuestionAnsweredCount = 0;
     private int mAnswerScore = 0;
@@ -74,6 +78,7 @@ public class QuizActivity extends AppCompatActivity {
 
         mTvQuestion = (TextView) findViewById(R.id.tvQuestion);
 
+        //mBtnTrue = (Button) findViewById(R.id.btnTrue);
         mBtnTrue = (Button) findViewById(R.id.btnTrue);
         mBtnTrue.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,6 +110,15 @@ public class QuizActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
                 updateQuestion();
+            }
+        });
+
+        mBtnCheat = (Button) findViewById(R.id.btnCheat);
+        mBtnCheat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(QuizActivity.this, CheatActivity.class);
+                startActivity(intent);
             }
         });
 

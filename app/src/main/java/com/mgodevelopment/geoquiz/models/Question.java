@@ -1,4 +1,4 @@
-package com.mgodevelopment.geoquiz;
+package com.mgodevelopment.geoquiz.models;
 
 /**
  * Created by Martin on 3/14/2017.
